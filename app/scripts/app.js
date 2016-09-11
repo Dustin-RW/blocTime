@@ -11,7 +11,15 @@
 
 
 
+
+
     angular
         .module('blocTime', ['firebase', 'ui.router'])
-        .config(config);
+        .config(config)
+        .constant('STOP_WATCH', {
+          "workTime": 5,
+          "breakTime": 3,
+          "defaultWorkTime": 5,
+          "defaultBreakTime": 3
+        });
 })();
