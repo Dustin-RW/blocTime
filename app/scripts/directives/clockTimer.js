@@ -1,5 +1,6 @@
 (function() {
     function clockTimer($interval, $window, STOP_WATCH) {
+
         return {
             templateUrl: '/templates/directives/clock_timer.html',
             replace: true,
@@ -10,13 +11,31 @@
                 scope.STOP_WATCH = STOP_WATCH; //see constants in app.js
                 scope.startButton = 'Start Work';
                 scope.breakButton = 'Take Break';
-                //boolean for alternating displaying of work-time or break
-                scope.onBreak = false;
-                var completedWorkSessions = 0;
+                scope.onBreak = false;  //boolean for alternating displaying of work-time or break
+                var mySound = new buzz.sound("assets/sounds/elevatorDing.mp3", {
+                  preload: true
+                });
 
+                // @desc initiates holder of completed work sessions.  Increments by 1 once timer hits 0
+                var completedWorkSessions = 0;
                 // @desc Holds state for $interval call
                 var promise;
 
+                scope.$watch('STOP_WATCH.totalWorkTime', function() {
+                  if (scope.STOP_WATCH.totalWorkTime === 0) {
+                    mySound.play();
+                    console.log(mySound);
+                    console.log("im listening");
+                  }
+                });
+
+                scope.$watch('STOP_WATCH.totalBreakTime', function() {
+                  if (scope.STOP_WATCH.totalBreakTime === 0) {
+                    mySound.play();
+                    console.log(mySound);
+                    console.log("im listening");
+                  }
+                });
 
                 /**
                  * @desc counts down the working time clock
@@ -39,6 +58,7 @@
                     }
                 };
 
+
                 // function countDown(time) {
                 //   if (time > 0) {
                 //     console.log(time);
@@ -57,6 +77,11 @@
                 //   scope.STOP_WATCH.breakTime = scope.STOP_WATCH.defaultBreakTime;
                 // };
 
+
+                /**
+                 * @desc counts down the break time clock
+                 * @function
+                 */
                 var breakCountdown = function() {
                     if (scope.STOP_WATCH.totalBreakTime > 0) {
                         scope.STOP_WATCH.totalBreakTime--;
@@ -67,7 +92,6 @@
                         scope.STOP_WATCH.totalBreakTime = scope.STOP_WATCH.defaultBreakTime;
                     }
                 }
-
 
 
                 scope.stop = function() {
