@@ -8,6 +8,12 @@
 <div class="task-board">
   <h3>Task Board</h3>
   <span><input class="task-input" type="text" ng-model="addedTask"/><button class="task-button" ng-click="addTask(addedTask)">Add Task</button></span>
-  <h3 ng-repeat="task in tasks">{{ task.$value }}</h3>
+  <ul>
+    <h3 ng-repeat="task in tasks | orderBy: 'toString()': reverse = true">
+      <li>
+        {{ task.$value  }}
+      </li>
+    </h3>
+  </ul>
 </div>
 </section>
