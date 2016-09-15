@@ -12,7 +12,6 @@
 
     //download tasks into a synchronized array
     var tasks = $firebaseArray(ref);
-    console.log(tasks);
 
     return {
       all: tasks
