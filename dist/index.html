@@ -5,12 +5,25 @@
     <meta charset="UTF-8">
     <title>BlocTime</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 
 <body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+          <clock-timer></clock-timer>
+      </div>
 
-    <clock-timer></clock-timer>
+    </div>
+
+  </div>
+
 
 
 
@@ -32,11 +45,13 @@
         authDomain: "bloctime-2ff21.firebaseapp.com",
         databaseURL: "https://bloctime-2ff21.firebaseio.com",
         storageBucket: "bloctime-2ff21.appspot.com",
+        messagingSenderId: "604045979631"
       };
       firebase.initializeApp(config);
     </script>
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="/scripts/app.js"></script>
+    <script src="/scripts/controllers/TimerCtrl.js"></script>
     <script src="/scripts/directives/clockTimer.js"></script>
     <script src="/scripts/filters/clockFormat.js"></script>
 </body>

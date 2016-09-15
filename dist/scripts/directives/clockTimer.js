@@ -1,5 +1,5 @@
 (function() {
-    function clockTimer($interval, $window, STOP_WATCH) {
+    function clockTimer($interval, $window, STOP_WATCH, Tasks) {
 
         return {
             templateUrl: '/templates/directives/clock_timer.html',
@@ -7,7 +7,7 @@
             restrict: 'E',
             scope: {},
             link: function(scope, element, attributes) {
-
+                scope.tasks = Tasks.all;
                 scope.STOP_WATCH = STOP_WATCH; //see constants in app.js
                 scope.startButton = 'Start Work';
                 scope.breakButton = 'Take Break';
@@ -36,6 +36,11 @@
                     console.log("im listening");
                   }
                 });
+
+                scope.addTask = function(addedTask) {
+                  addedTask = Tasks.all.$add(addedTask);
+                  console.log("task" + addedTask + "entered");
+                }
 
                 /**
                  * @desc counts down the working time clock
