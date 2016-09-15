@@ -7,7 +7,7 @@
             restrict: 'E',
             scope: {},
             link: function(scope, element, attributes) {
-
+                scope.tasks = Tasks.all;
                 scope.STOP_WATCH = STOP_WATCH; //see constants in app.js
                 scope.startButton = 'Start Work';
                 scope.breakButton = 'Take Break';
@@ -38,8 +38,7 @@
                 });
 
                 scope.addTask = function(addedTask) {
-                  console.log(addedTask)
-                  addedTask = Tasks.$add(addedTask);
+                  addedTask = Tasks.all.$add(addedTask);
                   console.log("task" + addedTask + "entered");
                 }
 
