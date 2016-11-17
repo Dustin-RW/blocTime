@@ -13,7 +13,7 @@ Utilizes Firebase.  _see_ https://firebase.google.com/
 
 **Bloctime Firebase (backend)**
 
-<img src="app/assets/images/bloc-jams-angular-images/bloctime_database.png" width="600" height="400" />
+<img src="app/assets/images/bloctime_images/bloctime_database.png" width="600" height="400" />
 
 
 ## Grunt plugins
