@@ -30,11 +30,11 @@
         .config(config)
         .factory('Tasks', ['$firebaseArray', Tasks])
         .constant('STOP_WATCH', {
-          "totalWorkTime": 5,
-          "totalBreakTime": 3,
-          "totalLongBreakTime": 4,
-          "defaultWorkTime": 5,
-          "defaultBreakTime": 3,
-          "defaultLongBreakTime": 4
+          "totalWorkTime": 1500,
+          "totalBreakTime": 300,
+          "totalLongBreakTime": 1800,
+          "defaultWorkTime": 1500,
+          "defaultBreakTime": 300,
+          "defaultLongBreakTime": 1800
         });
 })();

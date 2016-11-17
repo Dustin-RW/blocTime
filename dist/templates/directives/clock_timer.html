@@ -1,19 +1,26 @@
 <section class="clock-container">
-<div class="clock-button" ng-show="!onBreak === true"> {{ STOP_WATCH.totalWorkTime | clockFormat }}
-  <button class="btn" ng-click="startStopButton(startButton)" ng-show="!onBreak === true">{{ startButton }}</button>
+<div class="clock-button" ng-show="!onBreak === true">
+  <h2 class="col-md-12 text-center">{{ STOP_WATCH.totalWorkTime | clockFormat }}</h2>
+  <div class="col-md-12 text-center"><button class="btn btn-default" ng-click="startStopButton(startButton)" ng-show="!onBreak === true">{{ startButton }}</button></div>
 </div>
-<div class="clock-button" ng-hide="onBreak === false"> {{ STOP_WATCH.totalBreakTime | clockFormat }}
-  <button class="btn" ng-click="takeBreakButton(breakButton)">{{ breakButton }}</button>
+<div class="clock-button" ng-hide="onBreak === false">
+  <h2 class="col-md-12 text-center">{{ STOP_WATCH.totalBreakTime | clockFormat }}</h2>
+  <div class="col-md-12 text-center"><button class="btn btn-default" ng-click="takeBreakButton(breakButton)">{{ breakButton }}</button></div>
 </div>
-<div class="task-board">
+<div class="task-board form-horizontal">
   <h3>Task Board</h3>
-  <span><input class="task-input" type="text" ng-model="addedTask"/><button class="task-button" ng-click="addTask(addedTask)">Add Task</button></span>
-  <ul>
-    <h3 ng-repeat="task in tasks | orderBy: 'toString()': reverse = true">
-      <li>
-        {{ task.$value  }}
-      </li>
-    </h3>
-  </ul>
+  <div class="form-group">
+    <div class="col-sm-10">
+      <input class="form-control" type="text" ng-model="addedTask"/>
+    </div>
+    <button class="btn btn-default task-button" ng-click="addTask(addedTask)">Add Task</button>
+  </div>
+
+  <table class="table table-striped">
+    <tr ng-repeat="task in tasks | orderBy: 'toString()': reverse = true">
+      <td>{{ task.$value  }}</td>
+    </tr>
+
+  </table>
 </div>
 </section>
